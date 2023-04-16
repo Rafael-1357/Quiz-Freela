@@ -1,0 +1,40 @@
+:root{
+  --verde: #08a47c;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+#content{
+  width: 100%;
+  height: 100vh;
+  padding: 5% 10%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+}
+
+#container{
+  max-width: 900px;
+  width: 100%;
+  height: 100%;
+  padding: 25px;
+  border-radius: 32px;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#quiz{
+  width: 50%;
+  height: 100%;
+}
+
+#quiz-imagens{
+  width: 50%;
+  height: 100%;
+}

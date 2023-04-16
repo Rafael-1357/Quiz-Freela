@@ -1,0 +1,28 @@
+PÁGINA DE ADMIN
+
+Perguntas**
+
+- Tela de login(Login dentro do código);
+- Alteração de perguntas, opções e peso;
+
+Respostas**
+- Alimentar tabela com os dados enviados no Quiz. 
+
+--------------------------------------------
+
+PÁGINA DE QUIZ
+
+- Armazenar;
+	.nome
+	.número
+	.raça
+	.nota
+
+- Puxar perguntas da telas Perguntas;
+
+------------------------
+
+GERAL
+
+- Criar tabelas no banco de dados em produção;
+- Alterar credenciais para funcionar em produção;
