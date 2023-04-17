@@ -1,0 +1,190 @@
+:root{
+  --verde: #08a47c;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  box-sizing: border-box;
+}
+
+header{
+  width: 100%;
+  height: 80px;
+  background-color: var(--verde);
+}
+
+#headerContainer{
+  max-width: 900px;
+  height: 100%;
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#headerContainer #logo{
+  position: absolute;
+  left: 0;
+}
+
+#headerContainer #headerLinks{
+  display: flex;
+  gap: 70px;
+}
+
+#headerContainer #headerLinks a{
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+#headerContainer #headerLinks a.selected{
+  font-weight: bold;
+}
+
+main{
+  width: 100%;
+  height: calc(100% - 80px);
+}
+
+#mainContainer{
+  max-width: 900px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+#mainContainer h1{
+  color: #4d4b4b;
+}
+
+#mainContainer p{
+  color: #a0a0a0;
+}
+
+#tabela{
+  margin: 30px 0;
+  border: 1px solid #c1c1c1;
+  border-radius: 9px;
+}
+
+#tabela #resposta{
+  height: 50px;
+  font-size: 18px;
+  font-weight: bold;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+#tabela #resposta p{
+  color: #000000;
+}
+
+#tabela table{
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#tabela table thead tr th{
+  height: 31px;
+  text-align: left;
+}
+
+#tabela table tbody tr td{
+  color: #807e7e;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+#tabela table tbody tr td, #tabela table thead tr th{
+  width: 20%;
+  padding: 2px 10px;
+  border: 1px solid #c1c1c1;
+}
+
+#tabela table tbody tr td:nth-child(1), #tabela table thead tr th{
+  border-left: 0px;
+}
+
+#tabela table tbody tr td:nth-child(5), #tabela table thead tr th:nth-child(5){
+  border-right: 0px;
+}
+
+#tabela table tbody tr td div{
+  width: 26px;
+  height: 26px;
+  border-radius: 50px;
+  display: flex;
+}
+
+#tabela table tbody tr td div.alta{
+  background-color: red;
+}
+
+#tabela table tbody tr td div.pouca{
+  background-color: yellow;
+}
+
+#tabela table tbody tr td div.baixa{
+  background-color: green;
+}
+
+#paginas{
+  height: 30px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+#paginas button{
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+#paginas button img, #paginas input{
+  color: #a0a0a0;
+}
+
+#paginas button:nth-child(1) i{
+  transform: rotate(-90deg);
+  width: 15px;
+}
+
+#paginas button:nth-child(3) i{
+  transform: rotate(90deg);
+  width: 15px;
+}
+
+#paginas input{
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  text-align: center;
+  outline: none;
+}
+
+/* ********************************** */
+/* Resposividade */
+/* ********************************** */
+
+@media (max-width: 900px){
+  header #headerContainer #logo{
+    left: 10px;
+  }
+
+  main #mainContainer{
+    padding: 20px 10px;
+  }
+
+  #tabela table tbody tr td:nth-child(1){
+    overflow-x: hidden;
+  }
+}
