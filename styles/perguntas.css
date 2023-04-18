@@ -45,3 +45,188 @@ header{
 #headerContainer #headerLinks a.selected{
   font-weight: bold;
 }
+
+main{
+  width: 100%;
+  height: calc(100% - 80px);
+}
+
+#mainContainer{
+  max-width: 900px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+#mainContainerTitulo{
+  color: #595959;
+}
+
+#mainContainerFrase{
+  color: #afafaf;
+}
+
+#perguntasContainer{
+  width: 100%;
+  height: 100%;
+  margin-top: 15px;
+}
+
+.perguntasContent{
+  width: 100%;
+  min-height: 60px;
+  height: auto;
+  position: relative;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.perguntas{
+  width: 100%;
+  height: 60px;
+  border: 1px solid var(--verde);
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.perguntasEsquerda{
+  display: flex;
+  align-items: center;
+}
+
+.tituloPerguntas, .tituloAlternativas{
+  color: var(--verde);
+  margin: 0 15px;
+}
+
+.tituloAlternativas{
+  font-size: 22px;
+}
+
+.perguntas .titulo, .tituloInput{
+  display: flex;
+}
+
+.perguntas .titulo input{
+  width: auto;
+  height: 30px;
+  font-size: 18px;
+  margin-right: 5px;
+  outline: transparent;
+}
+
+.perguntas .titulo button, .peso button, .tituloInput button{
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: var(--verde);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.perguntas .titulo button i, .peso button i, .tituloInput button i{
+  color: #ffffff;
+  font-size: 8px;
+}
+
+.perguntasDireita{
+  display: flex;
+  align-items: center;
+}
+
+.peso{
+  width: 30px;
+  height: 100%;
+  position: relative;
+}
+
+.peso p{
+  color: #000;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.peso input{
+  width: 30px;
+  height: 30px;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  padding: 2px;
+  border: 2px solid #c0c0c0;
+  border-radius: 3px;
+  outline: transparent;
+}
+
+.peso button{
+  position: absolute;
+  top: 10px;
+  right: -5px;
+}
+
+.alternativasOpenClose{
+  width: 30px;
+  height: 30px;
+  margin: 0 20px;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.alternativasOpenClose i{
+  color: var(--verde);
+  font-size: 17px;
+  z-index: 1;
+}
+
+.alternativasOpenClose i.close{
+  transform: rotate(180deg);
+  z-index: 1;
+}
+
+.alternativas{
+  width: 98%;
+  height: auto;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #f1f1f1;
+  display: none;
+}
+
+.alternativasContent{
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+.alternativasContent .tituloInput input{
+  width: auto;
+  height: 30px;
+  font-size: 16px;
+  margin-right: 5px;
+  outline: transparent;
+}
+
+.perguntas .titulo button, .peso button{
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  background-color: var(--verde);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.perguntas .titulo button i, .peso button i{
+  color: #ffffff;
+  font-size: 8px;
+}

@@ -6,19 +6,124 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
   <!-- CSS reset -->
   <link rel="stylesheet" href="./styles/reset.css">
-  <link rel="stylesheet" href="./styles/dashboard.css">
+  <link rel="stylesheet" href="./styles/perguntas.css">
+
 </head>
 <body>
+
   <header>
     <div id="headerContainer">
       <div id="logo">LOGO</div>
       <div id="headerLinks">
-        <a href="#">Perguntas</a>
-        <a href="#" class="selected">Respostas</a>
+        <a href="#" class="selected">Perguntas</a>
+        <a href="#">Respostas</a>
       </div>
     </div>
   </header>
+
+  <main>
+    <div id="mainContainer">
+      <h1 id="mainContainerTitulo">Perguntas</h1>
+      <p id="mainContainerFrase">Aqui você consegue editar algumas informações como, as perguntas, altenativas e o peso</p>
+      <div id="perguntasContainer">
+        <div class="perguntasContent">
+          <div class="perguntas">
+            <div class="perguntasEsquerda">
+              <h1 class="tituloPerguntas">1</h1>
+              <div class="titulo">
+                <input type="text" id="alow" value="Lorem ipsum dolor sit amet." disabled>
+                <button><i class="fa-solid fa-pencil"></i></button>
+              </div>
+            </div>
+            <div class="perguntasDireita">
+              <div class="peso">
+                <p>peso</p>
+                <input type="text" value="1">
+                <button><i class="fa-solid fa-pencil"></i></button>
+              </div>
+              <button class="alternativasOpenClose" data-id="1">
+                <i class="fa-solid fa-angle-up close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="alternativas" data-id="1">
+            <div class="alternativasContent">
+              <h3 class="tituloAlternativas">1</h2>
+              <div class="tituloInput">
+                <input type="text" id="alow" value="Lorem ipsum dolor sit amet." disabled>
+                <button><i class="fa-solid fa-pencil"></i></button>
+              </div>
+            </div>
+            <div class="alternativasContent">
+              <h3 class="tituloAlternativas">2</h2>
+              <div class="tituloInput">
+                <input type="text" id="alow" value="Lorem ipsum dolor sit amet." disabled>
+                <button><i class="fa-solid fa-pencil"></i></button>
+              </div>
+            </div>
+            <div class="alternativasContent">
+              <h3 class="tituloAlternativas">3</h2>
+              <div class="tituloInput">
+                <input type="text" id="alow" value="Lorem ipsum dolor sit amet." disabled>
+                <button><i class="fa-solid fa-pencil"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="perguntasContent">
+          <div class="perguntas">
+            <div class="perguntasEsquerda">
+              <h1 class="tituloPerguntas">1</h1>
+              <div class="titulo">
+                <input type="text" id="alow" value="Lorem ipsum dolor sit amet." disabled>
+                <button><i class="fa-solid fa-pencil"></i></button>
+              </div>
+            </div>
+            <div class="perguntasDireita">
+              <div class="peso">
+                <p>peso</p>
+                <input type="text" value="2">
+                <button><i class="fa-solid fa-pencil"></i></button>
+              </div>
+              <button class="alternativasOpenClose" data-id="2">
+                <i class="fa-solid fa-angle-up close"></i>
+              </button>
+            </div>
+          </div>
+          <div class="alternativas" data-id="2">
+            <div class="alternativasContent">
+              <h3 class="tituloAlternativas">1</h2>
+              <div class="tituloInput">
+                <input type="text" id="alow" value="Lorem ipsum dolor sit amet." disabled>
+                <button><i class="fa-solid fa-pencil"></i></button>
+              </div>
+            </div>
+            <div class="alternativasContent">
+              <h3 class="tituloAlternativas">2</h2>
+              <div class="tituloInput">
+                <input type="text" id="alow" value="Lorem ipsum dolor sit amet." disabled>
+                <button><i class="fa-solid fa-pencil"></i></button>
+              </div>
+            </div>
+            <div class="alternativasContent">
+              <h3 class="tituloAlternativas">3</h2>
+              <div class="tituloInput">
+                <input type="text" id="alow" value="Lorem ipsum dolor sit amet." disabled>
+                <button><i class="fa-solid fa-pencil"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Script Links -->
+  <script src="./scripts/OpenAlternatives.js"></script>
 </body>
 </html>
