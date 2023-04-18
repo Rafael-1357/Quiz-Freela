@@ -115,7 +115,13 @@ main{
   height: 30px;
   font-size: 18px;
   margin-right: 5px;
+  padding: 0 8px;
   outline: transparent;
+}
+
+.perguntas .titulo input:focus{
+  border: 1px solid var(--verde);
+  border-radius: 8px;
 }
 
 .perguntas .titulo button, .peso button, .tituloInput button{
@@ -211,6 +217,7 @@ main{
   width: auto;
   height: 30px;
   font-size: 16px;
+  padding: 8px;
   margin-right: 5px;
   outline: transparent;
 }
@@ -224,9 +231,16 @@ main{
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 }
 
 .perguntas .titulo button i, .peso button i{
+  width: 15px;
+  height: 15px;
   color: #ffffff;
   font-size: 8px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -2,6 +2,8 @@ const swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
   loop: false,
+  effect: 'slide',
+  allowTouchMove: false,
 
   // If we need pagination
   pagination: {
