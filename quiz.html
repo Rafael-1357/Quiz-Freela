@@ -32,9 +32,9 @@
         <div id="page2" class="quiz-pages">
           <div class="perguntas">
             <label for="nome">Nome <strong>*</strong></label>
-            <input type="text" name="nome" id="nome">
+            <input type="text" maxlength="25" placeholder="Seu Nome" name="nome" id="nome">
             <label for="numT">Número de telefone <strong>*</strong></label>
-            <input type="text" name="numT" id="numT">
+            <input type="text" pattern="([0-9]{2})" maxlength="13" OnKeyPress="formatar('## ####-#####', this)" placeholder="(99) 9999-99999" name="numT" id="numT">
             <div class="botoesPerguntas">
               <button id="page2Next" disabled>Avançar</button>
             </div>
@@ -43,13 +43,13 @@
         <div id="page3" class="quiz-pages">
           <div class="perguntas">
             <label for="nomoP">Qual o nome do seu pet<strong>*</strong></label>
-            <input type="text" name="nomeP" id="nomeP">
+            <input type="text" maxlength="25" name="nomeP" id="nomeP">
             <label for="racas">Qual a raça?<strong>*</strong></label>
             <select class="js-example-basic-single" name="racas" id="racas">
               <option value="selecione">selecione</option>
             </select>
             <label for="idade">Qual a idade?<strong>*</strong></label>
-            <input type="text" name="idade" id="idade">
+            <input type="text" maxlength="2" pattern="([0-9]{2})" OnKeyPress="formatar('##', this)" name="idade" id="idade">
             <div class="botoesPerguntas">
               <button id="page3Prev">Voltar</button>
               <button id="page3Next" disabled>Avançar</button>
@@ -190,8 +190,6 @@
             <div class="questoes">
               <div class="questao">Ecocardiograma</div>
               <div class="questao">Eletrocardiograma</div>
-              <div class="questao">Radiografia de torax</div>
-              <div class="questao">Nenhum desses exames a cima</div>
             </div>
           </div>
           <div class="botoesPerguntas botoesPerguntasBD">
@@ -259,8 +257,31 @@
         });
         
       });
+
+      $(document).ready(function() {
+        $("#idade").keyup(function() {
+            $("#idade").val(this.value.match(/[0-9]*/));
+        });
+      });
+
+      $(document).ready(function() {
+        $("#numT").keyup(function() {
+            $("#numT").val(this.value.match(/^[\d\s-]+$/));
+        });
+      });
+
+      function formatar(mascara, documento){
+        let i = documento.value.length;
+        let saida = mascara.substring(0,1);
+        let texto = mascara.substring(i)
+        
+        if (texto.substring(0,1) != saida){
+                  documento.value += texto.substring(0,1);
+        }
+        
+      }
   </script>
-<script src="./scripts/raças.js"></script>
+  <script src="./scripts/raças.js"></script>
 </body>
 
 </html>

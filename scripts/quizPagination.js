@@ -74,18 +74,11 @@ page3ButtonNext.addEventListener('click', () => {
     pIdade = 3;
   };
 
-  console.log(
-    inputRacas.value == 'Boxer'
-  )
-
   if(inputRacas.value == 'Boxer' || inputRacas.value == 'Dobermann'){
     pRaca = 4
   } else if(inputRacas.value == 'Cavalier'){
     pRaca = 6
   } 
-
-  console.log(pIdade)
-  console.log(pRaca)
 })
 
 page4ButtonNext.addEventListener('click', () => {
@@ -181,7 +174,7 @@ page81ButtonNext.addEventListener('click', () => {
   questoes8.forEach((div, index) => {
     if (div.classList.contains('selecionado')) {
       if (index === 0) {
-        pPraia = 3;
+        pPraia += 3;
       } 
     }
   })
@@ -189,8 +182,61 @@ page81ButtonNext.addEventListener('click', () => {
 })
 
 page9ButtonNext.addEventListener('click', () => {
-  page9.style.display = 'none'
-  containerQuiz.style.display = 'none'
+  
+  const div1 = document.querySelector("#page9 .questao");
+  const div2 = document.querySelector("#page9 .questao:nth-child(1)");
+  const div3 = document.querySelector("#page9 .questao:nth-child(2)");
+
+  questoes9.forEach((div, index) => {
+    if (div.classList.contains('selecionado')) {
+      if (index === 0) {
+        pExames += 1;
+      } else if (index === 1) {
+        pExames += 1;
+      } else if (index === 2) {
+        pExames += 1;
+      }
+    }
+  })
+  
+  if (div1.classList.contains("selecionado") || div2.classList.contains("selecionado") || div3.classList.contains("selecionado")) {
+    page9.style.display = 'none'
+    page91.style.display = 'flex'
+  } else {
+    containerQuiz.style.display = 'none'
+    containerLoading.style.display = 'flex'
+  
+    setTimeout(() => {
+
+      containerLoading.style.display = 'none'
+
+      totalPontuacao = pIdade + pPeso + pTosse + pCansaco + pInchaco + pPeso + pExames;
+    
+      if(totalPontuacao <= 3){
+        document.getElementById('imagemBaixa').classList.add('visivel')
+        h1Baixa.style.display = 'flex'
+        pBaixa.style.display = 'flex'
+        h4Baixa.style.display = 'flex'
+      } else if(totalPontuacao > 3 && totalPontuacao <= 6){
+        document.getElementById('imagemPouca').classList.add('visivel')
+        document.getElementById('wpp').style.display = "inline-block"
+        h1Pouca.style.display = 'flex'
+        pPouca.style.display = 'flex'
+        h4Pouca.style.display = 'flex'
+      } else if(totalPontuacao > 6){
+        document.getElementById('imagemAlta').classList.add('visivel')
+        document.getElementById('wpp').style.display = "inline-block"
+        h1Alta.style.display = 'flex'
+        pAlta.style.display = 'flex'
+        h4Alta.style.display = 'flex'
+      }
+
+      wpp.href = `https://wa.me/+5522997232660?text=Olá, me chamo ${inputNome.value} e gostaria de marcar uma consulta para o(a) ${inputNomep.value}, quando há vagas?`
+
+    containerResult.style.display = 'flex'
+    }, "3000");
+  }
+
   
   questoes8.forEach((div, index) => {
     if (div.classList.contains('selecionado')) {
@@ -204,7 +250,21 @@ page9ButtonNext.addEventListener('click', () => {
     }
   })
 
+})
+
+page91ButtonNext.addEventListener('click', () => {
+  page91.style.display = 'none'
+  containerQuiz.style.display = 'none'
+
   containerLoading.style.display = 'flex'
+
+  questoes91.forEach((div, index) => {
+    if (div.classList.contains('selecionado')) {
+      if (index === 1) {
+        pExames += 6;
+      } 
+    }
+  })
   
   setTimeout(() => {
 
@@ -237,56 +297,7 @@ page9ButtonNext.addEventListener('click', () => {
   }, "3000");
 })
 
-// page91ButtonNext.addEventListener('click', () => {
-//   page9.style.display = 'none'
-//   containerQuiz.style.display = 'none'
-  
-//   questoes8.forEach((div, index) => {
-//     if (div.classList.contains('selecionado')) {
-//       if (index === 0) {
-//         pExames += 1;
-//       } else if (index === 1) {
-//         pExames += 1;
-//       } else if (index === 2) {
-//         pExames += 1;
-//       }
-//     }
-//   })
-
-//   containerLoading.style.display = 'flex'
-  
-//   setTimeout(() => {
-
-//     containerLoading.style.display = 'none'
-
-//     totalPontuacao = pIdade + pPeso + pTosse + pCansaco + pInchaco + pPeso + pExames;
-  
-//     if(totalPontuacao <= 3){
-//       document.getElementById('imagemBaixa').classList.add('visivel')
-//       h1Baixa.style.display = 'flex'
-//       pBaixa.style.display = 'flex'
-//       h4Baixa.style.display = 'flex'
-//     } else if(totalPontuacao > 3 && totalPontuacao <= 6){
-//       document.getElementById('imagemPouca').classList.add('visivel')
-//       document.getElementById('wpp').style.display = "inline-block"
-//       h1Pouca.style.display = 'flex'
-//       pPouca.style.display = 'flex'
-//       h4Pouca.style.display = 'flex'
-//     } else if(totalPontuacao > 6){
-//       document.getElementById('imagemAlta').classList.add('visivel')
-//       document.getElementById('wpp').style.display = "inline-block"
-//       h1Alta.style.display = 'flex'
-//       pAlta.style.display = 'flex'
-//       h4Alta.style.display = 'flex'
-//     }
-
-//     wpp.href = `https://wa.me/+5522997232660?text=Olá, me chamo ${inputNome.value} e gostaria de marcar uma consulta para o(a) ${inputNomep.value}, quando há vagas?`
-
-//   containerResult.style.display = 'flex'
-//   }, "3000");
-// })
-
-// Eventos dos botões voltar
+//Eventos dos botões voltar
 
 page3ButtonPrev.addEventListener('click', () => {
   page3.style.display = 'none'
@@ -324,10 +335,22 @@ page8ButtonPrev.addEventListener('click', () => {
   pInchaco = 0
 })
 
+page81ButtonPrev.addEventListener('click', () => {
+  page81.style.display = 'none'
+  page8.style.display = 'flex'
+  pPraia = 0
+})
+
 page9ButtonPrev.addEventListener('click', () => {
   page9.style.display = 'none'
   page8.style.display = 'flex'
   pPraia = 0
+})
+
+page91ButtonPrev.addEventListener('click', () => {
+  page91.style.display = 'none'
+  page9.style.display = 'flex'
+  pExames = 0
 })
 
 
@@ -390,11 +413,27 @@ questoes8.forEach((questao8) => {
   });
 });
 
+const questoes81 = document.querySelectorAll('#page81 .questao');
+questoes81.forEach((questao81) => {
+  questao81.addEventListener('click', () => {
+    questao81.classList.toggle('selecionado');
+    page81ButtonNext.disabled = false;
+  });
+});
+
 const questoes9 = document.querySelectorAll('#page9 .questao');
 questoes9.forEach((questao9) => {
   questao9.addEventListener('click', () => {
     questao9.classList.toggle('selecionado');
     page9ButtonNext.disabled = false;
+  });
+});
+
+const questoes91 = document.querySelectorAll('#page91 .questao');
+questoes91.forEach((questao91) => {
+  questao91.addEventListener('click', () => {
+    questao91.classList.toggle('selecionado');
+    page91ButtonNext.disabled = false;
   });
 });
 
