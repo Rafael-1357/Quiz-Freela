@@ -9,25 +9,223 @@
   <!-- CSS quiz -->
   <link rel="stylesheet" href="styles/quiz.css">
 
-  <!-- Swipper -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Select2 -->
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 </head>
 
 <body>
   <main id="content">
-    <div id="container">
-      <div id="quiz">
-        <div id="page1" class="quiz-pages"></div>
+    <div id="containerQuiz" >
+      <div id="quiz" >
+        <div id="page1" class="quiz-pages">
+          <div id="logo">LOGO</div>
+          <h1>Saiba se seu cachorro pode ter alguma enfermidade cardíaca.</h1>
+          <p>Seu animal precisa de muito amor e cuidado, responda um rápido questionário para saber se ele pode ter algum problema cardíaco.</p>
+          <button id="page1Button">Iniciar questionário</button>
+        </div>
+        <div id="page2" class="quiz-pages">
+          <div class="perguntas">
+            <label for="nome">Nome <strong>*</strong></label>
+            <input type="text" name="nome" id="nome">
+            <label for="numT">Número de telefone <strong>*</strong></label>
+            <input type="text" name="numT" id="numT">
+            <div class="botoesPerguntas">
+              <button id="page2Next" disabled>Avançar</button>
+            </div>
+          </div>
+        </div>
+        <div id="page3" class="quiz-pages">
+          <div class="perguntas">
+            <label for="nomoP">Qual o nome do seu pet<strong>*</strong></label>
+            <input type="text" name="nomeP" id="nomeP">
+            <label for="racas">Qual a raça?<strong>*</strong></label>
+            <select class="js-example-basic-single" name="racas" id="racas">
+              <option value="selecione">selecione</option>
+            </select>
+            <label for="idade">Qual a idade?<strong>*</strong></label>
+            <input type="text" name="idade" id="idade">
+            <div class="botoesPerguntas">
+              <button id="page3Prev">Voltar</button>
+              <button id="page3Next" disabled>Avançar</button>
+            </div>
+          </div>
+        </div>
+        <div id="page4" class="quiz-pages questoesContainer">
+          <div class="perguntasBD">
+            <div class="titulo">
+              <h1>1</h1>
+              <p>Qual o peso do seu animal ?</p>
+            </div>
+            <div class="questoes">
+              <div class="questao">Menos de 15 quilos</div>
+              <div class="questao">Mais de 15 quilos</div>
+            </div>
+          </div>
+          <div class="botoesPerguntas botoesPerguntasBD">
+            <button id="page4Prev">Voltar</button>
+            <button id="page4Next" disabled>Avançar</button>
+          </div>
+        </div>
+        <div id="page5" class="quiz-pages questoesContainer">
+          <div class="perguntasBD">
+            <div class="titulo">
+              <h1>2</h1>
+              <p>Ele apresenta tosse? Se sim a quanto tempo ?</p>
+            </div>
+            <div class="questoes">
+              <div class="questao">Há 3 dias</div>
+              <div class="questao">Há uma semana ou mais</div>
+              <div class="questao">Há um mês ou mais</div>
+              <div class="questao">Não apresenta tosse</div>
+            </div>
+          </div>
+          <div class="botoesPerguntas botoesPerguntasBD">
+            <button id="page5Prev">Voltar</button>
+            <button id="page5Next" disabled>Avançar</button>
+          </div>
+        </div>
+        <div id="page6" class="quiz-pages questoesContainer">
+          <div class="perguntasBD">
+            <div class="titulo multiplo">
+              <h1>3</h1>
+              <p>Apresenta cansaço ou falta de ar? Se sim em qual situação</p>
+            </div>
+            <span>Nessa questão, pode selecionar mais de uma alternativa</span>
+
+            <div class="questoes">
+              <div class="questao">Parado</div>
+              <div class="questao">Caminhando</div>
+              <div class="questao">Dormindo</div>
+              <div class="questao">Não apresenta cansaço ou falta de ar</div>
+            </div>
+          </div>
+          <div class="botoesPerguntas botoesPerguntasBD">
+            <button id="page6Prev">Voltar</button>
+            <button id="page6Next" disabled>Avançar</button>
+          </div>
+        </div>
+        <div id="page7" class="quiz-pages questoesContainer">
+          <div class="perguntasBD">
+            <div class="titulo multiplo">
+              <h1>4</h1>
+              <p>O animal apresenta ou apresentou inchaço nas patas ou na barriga ?</p>
+            </div>
+            <span>Nessa questão, pode selecionar mais de uma alternativa</span>
+            <div class="questoes">
+              <div class="questao">Sim, Já apresentou inchaço na barriga</div>
+              <div class="questao">Sim, Já apresentou inchaço em um das patas</div>
+              <div class="questao">Sim, Já apresentou inchaço nas quatro patas</div>
+              <div class="questao">Não, ele(a) nunca apresentou quanlquer inchaço</div>
+            </div>
+          </div>
+          <div class="botoesPerguntas botoesPerguntasBD">
+            <button id="page7Prev">Voltar</button>
+            <button id="page7Next" disabled>Avançar</button>
+          </div>
+        </div>
+        <div id="page8" class="quiz-pages questoesContainer">
+          <div class="perguntasBD">
+            <div class="titulo">
+              <h1>5</h1>
+              <p>Ele já frequentou ou frequenta área de praia ?</p>
+            </div>
+            <div class="questoes">
+              <div class="questao">Sim</div>
+              <div class="questao">Não</div>
+            </div>
+          </div>
+          <div class="botoesPerguntas botoesPerguntasBD">
+            <button id="page8Prev">Voltar</button>
+            <button id="page8Next" disabled>Avançar</button>
+          </div>
+        </div>
+        <div id="page9" class="quiz-pages questoesContainer">
+          <div class="perguntasBD">
+            <div class="titulo multiplo">
+              <h1>6</h1>
+              <p>O animal possui algum desses exames ?</p>
+            </div>
+            <span>Nessa questão, pode selecionar mais de uma alternativa</span>
+            <div class="questoes">
+              <div class="questao">Ecocardiograma</div>
+              <div class="questao">Eletrocardiograma</div>
+              <div class="questao">Radiografia de torax</div>
+              <div class="questao">Nenhum desses exames a cima</div>
+            </div>
+          </div>
+          <div class="botoesPerguntas botoesPerguntasBD">
+            <button id="page9Prev">Voltar</button>
+            <button id="page9Next" disabled>Avançar</button>
+          </div>
+        </div>
       </div>
       <div id="quiz-imagens">
-        <img src="./assets/Hydratation-bro.svg" alt="">
+        <img src="./assets/Frame 8.png" alt="">
       </div>
     </div>
+    <div id="containerLoading" >
+      <h1>Aguarde um momento <br> para o resultado</h1>
+      <div id="contentLoading">
+        <div id="loading"></div>
+      </div>
+      <p>Aguardem só um pouquinho...</p>
+    </div>
+    <div id="containerResult" >
+      <div id="pingo">
+        <img src="./assets/dogIcon.svg" alt="">
+        <h3>pingo</h3>
+      </div>
+      <p>Resultado do Questionário</p>
+      <div id="probabilidade">
+        <img id="imagemBaixa" src="./assets/dogbaixa.svg" alt="">
+        <div id="baixa"></div>
+        <div id="baixapouca"></div>
+        <img id="imagemPouca" src="./assets/dogpouca.svg" alt="">
+        <div id="pouca"></div>
+        <div id="poucaalta"></div>
+        <img id="imagemAlta" src="./assets/dogalta.svg" alt="">
+        <div id="alta"></div>
+      </div>
+      <h1 id="h1Baixa">Provavelmente que seu pet não tenha <br> doença cardíaca</h1>
+      <h1 id="h1Pouca">É possível que seu pet tenha alguma <br> doença cardíaca ou poderá ter no futuro</h1>
+      <h1 id="h1Alta">É possível que seu pet tenha alguma <br> doença cardíaca</h1>
+      <p id="pBaixa">As informações sugerem que o seu pet tem baixa <br> probabilidade de ter alguma enfermidade cardíaca.</p>
+      <p id="pPouca">As informações sugerem que o seu pet tem pouca <br> probabilidade de ter alguma enfermidade cardíaca.</p>
+      <p id="pAlta">As informações sugrem que o seu pet tem alta <br> probabilidade de ter alguma enfermidade cardíaca, por isso é <br> importante passar em um consulta com um cardiologista veterinário.</p>
+      <h4 id="h4Baixa">Refaça esse teste pelo menos uma vez a cada ano.</h4>
+      <h4 id="h4Pouca">Ainda assim é importante solicitar ao veterinário que <br> avalie a necessidade de encaminha-lo para um especialista.</h4>
+      <h4 id="h4Alta">As informações sugrem que o seu pet tem alta probabilidade <br> de ter alguma enfermidade cardíaca, por isso é importante passar <br> em um consulta com um cardiologista veterinário.</h4>
+      <div id="resultButtoms">
+        <button>Refazer Questionario</button>
+        <button id="wpp"><a target="_blank" href="">Agendar uma consulta</a></button>
+      </div>
+      <span>clique para refazer o questionário</span>
+    </div>
+
   </main>
 
   <!-- Scripts -->
-  <script src="./scripts/swiper.js"></script>
+  <script src="./scripts/quizPagination.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  
+  <script>
+    // In your Javascript (external .js resource or <script> tag)
+      $(document).ready(function() {
+        $('.js-example-basic-single').select2({
+          width : '80%',
+          border : '1px solid red'
+        });
+        
+      });
+  </script>
+<script src="./scripts/raças.js"></script>
 </body>
 
 </html>

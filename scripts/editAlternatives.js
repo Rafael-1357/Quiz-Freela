@@ -1,5 +1,5 @@
 document.addEventListener('click', function(event) {
-  var target = event.target;
+  let target = event.target;
 
   if(target.parentNode.tagName.toLowerCase() === "button"){
     if(target.parentNode.parentNode.childNodes[3].tagName.toLowerCase() === 'input'){

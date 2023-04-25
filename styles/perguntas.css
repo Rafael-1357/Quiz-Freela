@@ -222,6 +222,11 @@ main{
   outline: transparent;
 }
 
+.alternativasContent .tituloInput input:focus{
+  border: 1px solid var(--verde);
+  border-radius: 8px;
+}
+
 .perguntas .titulo button, .peso button{
   width: 15px;
   height: 15px;
