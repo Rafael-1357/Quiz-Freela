@@ -40,7 +40,7 @@
   $validacao = validarDados($dados, $callbacksValidation);
 
   if($validacao) {
-    $query = "INSERT INTO form(nome, telefone, raca, pontuacao) VALUES ('$dados->nome', '$dados->telefone', '$dados->raca', $dados->pontuacao)";
+    $query = "INSERT INTO Form(nome, telefone, raca, pontuacao) VALUES ('$dados->nome', '$dados->telefone', '$dados->raca', $dados->pontuacao)";
     $mysqli->query($query);
   }
 ?>

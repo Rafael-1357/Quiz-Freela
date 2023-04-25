@@ -1,0 +1,7 @@
+CREATE TABLE Form(
+  idResposta INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  nome VARCHAR(50) NOT NULL,
+  telefone VARCHAR(13) NOT NULL,
+  raca VARCHAR(60) NOT NULL,
+  pontuacao INT
+);
