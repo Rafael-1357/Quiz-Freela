@@ -7,7 +7,9 @@ const page5 = document.getElementById('page5');
 const page6 = document.getElementById('page6');
 const page7 = document.getElementById('page7');
 const page8 = document.getElementById('page8');
+const page81 = document.getElementById('page81');
 const page9 = document.getElementById('page9');
+const page91 = document.getElementById('page91');
 const containerLoading = document.getElementById('containerLoading')
 const containerResult = document.getElementById('containerResult');
 const containerQuiz = document.getElementById('containerQuiz')
@@ -31,7 +33,9 @@ const page5ButtonNext = document.getElementById('page5Next')
 const page6ButtonNext = document.getElementById('page6Next')
 const page7ButtonNext = document.getElementById('page7Next')
 const page8ButtonNext = document.getElementById('page8Next')
+const page81ButtonNext = document.getElementById('page81Next')
 const page9ButtonNext = document.getElementById('page9Next')
+const page91ButtonNext = document.getElementById('page91Next')
 
 // Botoões voltar
 const page3ButtonPrev = document.getElementById('page3Prev');
@@ -40,7 +44,9 @@ const page5ButtonPrev = document.getElementById('page5Prev');
 const page6ButtonPrev = document.getElementById('page6Prev');
 const page7ButtonPrev = document.getElementById('page7Prev');
 const page8ButtonPrev = document.getElementById('page8Prev');
+const page81ButtonPrev = document.getElementById('page81Prev');
 const page9ButtonPrev = document.getElementById('page9Prev');
+const page91ButtonPrev = document.getElementById('page91Prev');
 
 // inputs
 const inputNome = document.getElementById('nome');
@@ -151,6 +157,25 @@ page7ButtonNext.addEventListener('click', () => {
 
 page8ButtonNext.addEventListener('click', () => {
   page8.style.display = 'none'
+  const primeiraDiv = document.querySelector("#page8 .questao:first-child");
+  if (primeiraDiv.classList.contains("selecionado")) {
+    page81.style.display = 'flex'
+  } else {
+    page9.style.display = 'flex'
+  }
+
+  questoes8.forEach((div, index) => {
+    if (div.classList.contains('selecionado')) {
+      if (index === 0) {
+        pPraia = 3;
+      } 
+    }
+  })
+
+})
+
+page81ButtonNext.addEventListener('click', () => {
+  page81.style.display = 'none'
   page9.style.display = 'flex'
 
   questoes8.forEach((div, index) => {
@@ -211,6 +236,55 @@ page9ButtonNext.addEventListener('click', () => {
   containerResult.style.display = 'flex'
   }, "3000");
 })
+
+// page91ButtonNext.addEventListener('click', () => {
+//   page9.style.display = 'none'
+//   containerQuiz.style.display = 'none'
+  
+//   questoes8.forEach((div, index) => {
+//     if (div.classList.contains('selecionado')) {
+//       if (index === 0) {
+//         pExames += 1;
+//       } else if (index === 1) {
+//         pExames += 1;
+//       } else if (index === 2) {
+//         pExames += 1;
+//       }
+//     }
+//   })
+
+//   containerLoading.style.display = 'flex'
+  
+//   setTimeout(() => {
+
+//     containerLoading.style.display = 'none'
+
+//     totalPontuacao = pIdade + pPeso + pTosse + pCansaco + pInchaco + pPeso + pExames;
+  
+//     if(totalPontuacao <= 3){
+//       document.getElementById('imagemBaixa').classList.add('visivel')
+//       h1Baixa.style.display = 'flex'
+//       pBaixa.style.display = 'flex'
+//       h4Baixa.style.display = 'flex'
+//     } else if(totalPontuacao > 3 && totalPontuacao <= 6){
+//       document.getElementById('imagemPouca').classList.add('visivel')
+//       document.getElementById('wpp').style.display = "inline-block"
+//       h1Pouca.style.display = 'flex'
+//       pPouca.style.display = 'flex'
+//       h4Pouca.style.display = 'flex'
+//     } else if(totalPontuacao > 6){
+//       document.getElementById('imagemAlta').classList.add('visivel')
+//       document.getElementById('wpp').style.display = "inline-block"
+//       h1Alta.style.display = 'flex'
+//       pAlta.style.display = 'flex'
+//       h4Alta.style.display = 'flex'
+//     }
+
+//     wpp.href = `https://wa.me/+5522997232660?text=Olá, me chamo ${inputNome.value} e gostaria de marcar uma consulta para o(a) ${inputNomep.value}, quando há vagas?`
+
+//   containerResult.style.display = 'flex'
+//   }, "3000");
+// })
 
 // Eventos dos botões voltar
 
