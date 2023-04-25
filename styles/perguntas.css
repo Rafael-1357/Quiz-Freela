@@ -207,6 +207,10 @@ main{
   display: none;
 }
 
+.alternativas--aberto {
+  display: block;
+}
+
 .alternativasContent{
   padding: 5px 0;
   display: flex;

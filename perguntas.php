@@ -31,7 +31,71 @@
       <h1 id="mainContainerTitulo">Perguntas</h1>
       <p id="mainContainerFrase">Aqui você consegue editar algumas informações como, as perguntas, altenativas e o peso</p>
       <div id="perguntasContainer">
-        <div class="perguntasContent">
+        <?php
+          include 'BDConection.php';
+          $mysqli = conectarBD();
+          $select_perguntas = $mysqli->query('SELECT * FROM Perguntas');
+
+          function gerarContainerPerguntas($id, $descricao, $peso) {
+            $html =    "<div class='perguntas'>";
+            $html .=     "<div class='perguntasEsquerda'>";
+            $html .=       "<h1 class='tituloPerguntas'>$id</h1>";
+            $html .=       "<div class='titulo'>";
+            $html .=         "<input type='text' data-id='$id' data-operation='question' value='$descricao' disabled>";
+            $html .=         "<button class='edit-btn'><i class='fa-solid fa-pencil'></i></button>";
+            $html .=       "</div>";
+            $html .=     "</div>";
+            $html .=     "<div class='perguntasDireita'>";
+            $html .=       "<div class='peso'>";
+            $html .=         "<p>Peso</p>";
+            $html .=         "<input type='text' data-id='$id' data-operation='weigth' value='$peso' disabled>";
+            $html .=         "<button class='edit-btn'><i class='fa-solid fa-pencil'></i></button>";
+            $html .=       "</div>";
+            $html .=       "<button class='alternativasOpenClose'><i class='fa-solid fa-angle-up close'></i></button>";
+            $html .=     "</div>";
+            $html .=   "</div>";
+            
+            return $html;
+          }
+
+          function gerarAlternativa($id, $descricao, $indice) {
+            $html =  "<div class='alternativasContent'>";
+            $html .=   "<h2 class='tituloAlternativas'>$indice</h2>";
+            $html .=   "<div class='tituloInput'>";
+            $html .=     "<input type='text' data-id='$id' data-operation='alternate' value='$descricao' disabled>";
+            $html .=     "<button class='edit-btn'><i class='fa-solid fa-pencil'></i></button>";
+            $html .=   "</div>";
+            $html .= "</div>";
+
+            return $html;
+          }
+
+          function gerarContainerAlternativas($select_opcoes) {
+            $html = '';
+            $i = 0;
+
+            while($opcao = $select_opcoes->fetch_array(MYSQLI_ASSOC)) {
+              $html .= gerarAlternativa($opcao['idOpcao'], $opcao['descricao'], ++$i);
+            }
+
+            return $html;
+          }
+
+          while($pergunta = $select_perguntas->fetch_array(MYSQLI_ASSOC)) {
+            $select_opcoes = $mysqli->query('SELECT * FROM Opcoes WHERE idPergunta = '.$pergunta['idPergunta']);
+
+            $html =  "<div class='perguntasContent'>";
+            $html .=    gerarContainerPerguntas($pergunta['idPergunta'], $pergunta['descricao'], $pergunta['peso']); 
+            $html .=   "<div class='alternativas'>";
+            $html .=      gerarContainerAlternativas($select_opcoes);
+            $html .=   "</div>";
+            $html .= "</div>";
+
+            echo $html;
+          }
+        ?>
+        
+        <!-- <div class="perguntasContent">
           <div class="perguntas">
             <div class="perguntasEsquerda">
               <h1 class="tituloPerguntas">1</h1>
@@ -40,6 +104,7 @@
                 <button class="edit-btn"><i class="fa-solid fa-pencil"></i></button>
               </div>
             </div>
+
             <div class="perguntasDireita">
               <div class="peso">
                 <p>peso</p>
@@ -51,14 +116,16 @@
               </button>
             </div>
           </div>
+
           <div class="alternativas">
             <div class="alternativasContent">
-              <h3 class="tituloAlternativas">1</h2>
+              <h3 class="tituloAlternativas">1</h3>
               <div class="tituloInput">
                 <input type="text" data-id="1" data-operation="alternate" id="alow" value="Menos de 15 quilos" disabled>
                 <button class="edit-btn"><i class="fa-solid fa-pencil"></i></button>
               </div>
             </div>
+
             <div class="alternativasContent">
               <h3 class="tituloAlternativas">2</h2>
               <div class="tituloInput">
@@ -424,14 +491,14 @@
               </div>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </main>
 
   <!-- Script Links -->
   <script src="./scripts/inputSize.js"></script>
-  <script src="./scripts/OpenAlternatives.js"></script>
+  <script src="./scripts/openAlternatives.js"></script>
   <script src="./scripts/editAlternatives.js"></script>
 </body>
 </html>
