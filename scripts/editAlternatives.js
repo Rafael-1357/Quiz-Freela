@@ -1,26 +1,33 @@
-document.addEventListener('click', function(event) {
-  let target = event.target;
+const editButtons = document.querySelectorAll('.edit-btn');
+const questions   = document.querySelectorAll('input[type="text"]');
 
-  if(target.parentNode.tagName.toLowerCase() === "button"){
-    if(target.parentNode.parentNode.childNodes[3].tagName.toLowerCase() === 'input'){
-      const inputWeight = target.parentNode.parentNode.childNodes[3]
-      inputWeight.disabled = false;
-      inputWeight.focus();
-      inputWeight.addEventListener('blur', function(event) {
-        inputWeight.disabled = true;
-      });
-    } else{
-      const inputTitle = target.parentNode.parentNode.childNodes[1]
-      inputTitle.disabled = false;
-      inputTitle.focus();
-      inputTitle.addEventListener('blur', function(event) {
-        inputTitle.disabled = true;
-      });
-    }
-  } else {
-    const inputs = document.querySelectorAll('input');
-    inputs.forEach(input => {
-      input.disabled = true;
-    });
+const habilitarCampo = (input) => {
+  input.removeAttribute('disabled');
+  input.focus();
+};
+
+const desabilitarCampo = (input) => input.setAttribute('disabled', '');
+
+const salvarAlteracoes = (input) => {
+  desabilitarCampo(input);
+  const {operation, id} = input.dataset;
+  const value = input.value;
+
+  const requestBody = {operation, id, value};
+
+  fetch('/Quiz-Freela/editQuestions.php', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(requestBody)
+  });
+};
+
+editButtons.forEach(button => button.addEventListener('click', () => habilitarCampo(button.previousElementSibling)));
+questions.forEach(input => input.addEventListener('blur', () => salvarAlteracoes(input)));
+questions.forEach(input => input.addEventListener('keydown', (event) => {
+  if(event.key === 'Enter') {
+    input.blur();
   }
-});
+}));
