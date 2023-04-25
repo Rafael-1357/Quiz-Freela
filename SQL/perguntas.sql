@@ -1,0 +1,5 @@
+CREATE TABLE Perguntas(
+  idPergunta INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  descricao VARCHAR(100) NOT NULL,
+  peso INT NOT NULL
+);
