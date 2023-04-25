@@ -202,7 +202,7 @@
 }
 
 .perguntasBD span{
-  width: 60%;
+  width: 80%;
   color: #fff;
   font-size: 12px;
   font-weight: bold;
@@ -534,7 +534,11 @@
     display: flex;
     align-items: center;
     margin-bottom: 15px;
-}
+  }
+
+  .perguntasBD span{
+    width: 100%;
+  }
 
 }
 
@@ -558,6 +562,7 @@
 
   .perguntasBD span{
     width: 100%;
+    font-size: 14px;
   }
 
   .perguntasBD .questoes .questao{
