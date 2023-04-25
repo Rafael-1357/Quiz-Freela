@@ -21,3 +21,15 @@ const swiper = new Swiper('.swiper', {
     el: '.swiper-scrollbar',
   },
 });
+
+const prev = document.querySelector('.prev')
+const next = document.querySelector('.next')
+const numPag = document.getElementById('numPag')
+
+prev.addEventListener('click', () => {
+  numPag.value -= 1;
+});
+
+next.addEventListener('click', () => {
+  numPag.value += 1;
+});

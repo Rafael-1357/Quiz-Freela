@@ -129,7 +129,7 @@
         </div>
         <div id="paginas">
           <button class="prev"><i class="fa-solid fa-angle-up" style="color: #a0a0a0;"></i></button>
-          <input type="text" name="" id="" value="1" disabled>
+          <input type="text" name="" id="numPag" value="1" disabled>
           <button class="next"><i class="fa-solid fa-angle-up" style="color: #a0a0a0;"></i></button>
         </div>
       </div>
