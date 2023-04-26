@@ -87,10 +87,10 @@
               function descobrirProbabilidade($pontuacao) {
                 $probabilidade = 'baixa';
 
-                if($pontuacao > 3) {
-                  $probabilidade = 'pouca'; 
-                } elseif($pontuacao > 6) {
-                  $probabilidade = 'alta';
+                if($pontuacao > 6) {
+                  $probabilidade = 'alta'; 
+                } elseif($pontuacao > 3) {
+                  $probabilidade = 'pouca';
                 }
 
                 return $probabilidade;
