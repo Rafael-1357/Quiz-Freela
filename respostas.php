@@ -85,13 +85,15 @@
               }
 
               function descobrirProbabilidade($pontuacao) {
-                if($pontuacao > 7) {
-                  return 'alta';
-                } elseif($pontuacao < 2) {
-                  return 'baixa';
-                } else {
-                  return 'pouca';
+                $probabilidade = 'baixa';
+
+                if($pontuacao > 3) {
+                  $probabilidade = 'pouca'; 
+                } elseif($pontuacao > 6) {
+                  $probabilidade = 'alta';
                 }
+
+                return $probabilidade;
               }
 
               function paginarDados($query_select) {

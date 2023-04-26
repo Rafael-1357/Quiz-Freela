@@ -34,7 +34,7 @@
   };
 
   $callbacksValidation['pontuacao'] = function($pontuacao) {
-    return $pontuacao >= 0 && $pontuacao <= 10;
+    return $pontuacao >= 0;
   };
 
   $validacao = validarDados($dados, $callbacksValidation);
