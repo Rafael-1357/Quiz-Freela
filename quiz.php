@@ -1,3 +1,21 @@
+<?php
+  include 'BDConection.php';
+  $mysqli = conectarBD();
+
+  $select_perguntas = $mysqli->query('SELECT descricao FROM Perguntas');
+  $select_opcoes    = $mysqli->query('SELECT descricao, idPergunta FROM Opcoes');
+
+  $perguntas = array();
+  $opcoes = array();
+
+  while($pergunta = $select_perguntas->fetch_array(MYSQLI_ASSOC)) {
+    $perguntas[] = $pergunta;
+  }
+
+  while($opcao = $select_opcoes->fetch_array(MYSQLI_ASSOC)) {
+    $opcoes[$opcao['idPergunta'] - 1][] = $opcao;
+  }
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -60,11 +78,11 @@
           <div class="perguntasBD">
             <div class="titulo">
               <h1>1</h1>
-              <p>Qual o peso do seu animal ?</p>
+              <p><?php echo $perguntas[0]['descricao']?></p>
             </div>
             <div class="questoes">
-              <div class="questao">Menos de 15 quilos</div>
-              <div class="questao">Mais de 15 quilos</div>
+              <div class="questao"><?php echo $opcoes[0][0]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[0][1]['descricao']?></div>
             </div>
           </div>
           <div class="botoesPerguntas botoesPerguntasBD">
@@ -76,13 +94,13 @@
           <div class="perguntasBD">
             <div class="titulo">
               <h1>2</h1>
-              <p>Ele apresenta tosse? Se sim a quanto tempo ?</p>
+              <p><?php echo $perguntas[1]['descricao']?></p>
             </div>
             <div class="questoes">
-              <div class="questao">Há 3 dias</div>
-              <div class="questao">Há uma semana ou mais</div>
-              <div class="questao">Há um mês ou mais</div>
-              <div class="questao">Não apresenta tosse</div>
+              <div class="questao"><?php echo $opcoes[1][0]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[1][1]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[1][2]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[1][3]['descricao']?></div>
             </div>
           </div>
           <div class="botoesPerguntas botoesPerguntasBD">
@@ -94,15 +112,15 @@
           <div class="perguntasBD">
             <div class="titulo multiplo">
               <h1>3</h1>
-              <p>Apresenta cansaço ou falta de ar? Se sim em qual situação</p>
+              <p><?php echo $perguntas[2]['descricao']?></p>
             </div>
             <span>Nessa questão, pode selecionar mais de uma alternativa</span>
 
             <div class="questoes">
-              <div class="questao">Parado</div>
-              <div class="questao">Caminhando</div>
-              <div class="questao">Dormindo</div>
-              <div class="questao">Não apresenta cansaço ou falta de ar</div>
+              <div class="questao"><?php echo $opcoes[2][0]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[2][1]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[2][2]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[2][3]['descricao']?></div>
             </div>
           </div>
           <div class="botoesPerguntas botoesPerguntasBD">
@@ -114,14 +132,14 @@
           <div class="perguntasBD">
             <div class="titulo multiplo">
               <h1>4</h1>
-              <p>O animal apresenta ou apresentou inchaço nas patas ou na barriga ?</p>
+              <p><?php echo $perguntas[3]['descricao']?></p>
             </div>
             <span>Nessa questão, pode selecionar mais de uma alternativa</span>
             <div class="questoes">
-              <div class="questao">Sim, Já apresentou inchaço na barriga</div>
-              <div class="questao">Sim, Já apresentou inchaço em um das patas</div>
-              <div class="questao">Sim, Já apresentou inchaço nas quatro patas</div>
-              <div class="questao">Não, ele(a) nunca apresentou quanlquer inchaço</div>
+              <div class="questao"><?php echo $opcoes[3][0]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[3][1]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[3][2]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[3][3]['descricao']?></div>
             </div>
           </div>
           <div class="botoesPerguntas botoesPerguntasBD">
@@ -133,11 +151,11 @@
           <div class="perguntasBD">
             <div class="titulo">
               <h1>5</h1>
-              <p>Ele já frequentou ou frequenta área de praia ?</p>
+              <p><?php echo $perguntas[4]['descricao']?></p>
             </div>
             <div class="questoes">
-              <div class="questao">Sim</div>
-              <div class="questao">Não</div>
+              <div class="questao"><?php echo $opcoes[4][0]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[4][1]['descricao']?></div>
             </div>
           </div>
           <div class="botoesPerguntas botoesPerguntasBD">
@@ -148,12 +166,12 @@
         <div id="page81" class="quiz-pages questoesContainer">
           <div class="perguntasBD">
             <div class="titulo">
-              <h1>5.1</h1>
-              <p>Ele já frequentou ou frequenta área de praia ?</p>
+              <h1>6</h1>
+              <p><?php echo $perguntas[5]['descricao']?></p>
             </div>
             <div class="questoes">
-              <div class="questao">Sim</div>
-              <div class="questao">Não</div>
+              <div class="questao"><?php echo $opcoes[5][0]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[5][1]['descricao']?></div>
             </div>
           </div>
           <div class="botoesPerguntas botoesPerguntasBD">
@@ -164,15 +182,15 @@
         <div id="page9" class="quiz-pages questoesContainer">
           <div class="perguntasBD">
             <div class="titulo multiplo">
-              <h1>6</h1>
-              <p>O animal possui algum desses exames ?</p>
+              <h1>7</h1>
+              <p><?php echo $perguntas[6]['descricao']?></p>
             </div>
             <span>Nessa questão, pode selecionar mais de uma alternativa</span>
             <div class="questoes">
-              <div class="questao">Ecocardiograma</div>
-              <div class="questao">Eletrocardiograma</div>
-              <div class="questao">Radiografia de torax</div>
-              <div class="questao">Nenhum desses exames a cima</div>
+              <div class="questao"><?php echo $opcoes[6][0]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[6][1]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[6][2]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[6][3]['descricao']?></div>
             </div>
           </div>
           <div class="botoesPerguntas botoesPerguntasBD">
@@ -183,13 +201,13 @@
         <div id="page91" class="quiz-pages questoesContainer">
           <div class="perguntasBD">
             <div class="titulo multiplo">
-              <h1>6.1</h1>
-              <p>O animal possui algum desses exames ?</p>
+              <h1>8</h1>
+              <p><?php echo $perguntas[7]['descricao']?></p>
             </div>
             <span>Nessa questão, pode selecionar mais de uma alternativa</span>
             <div class="questoes">
-              <div class="questao">Ecocardiograma</div>
-              <div class="questao">Eletrocardiograma</div>
+              <div class="questao"><?php echo $opcoes[7][0]['descricao']?></div>
+              <div class="questao"><?php echo $opcoes[7][1]['descricao']?></div>
             </div>
           </div>
           <div class="botoesPerguntas botoesPerguntasBD">
