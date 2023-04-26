@@ -1,2 +1,0 @@
-let pontuacaoFinal = 0
-
